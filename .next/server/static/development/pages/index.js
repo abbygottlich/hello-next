@@ -174,24 +174,49 @@ const layoutStyle = {
   margin: 20,
   padding: 20,
   border: '1px solid #DDD'
-};
+}; // Method #1
 
 const Layout = props => __jsx("div", {
   style: layoutStyle,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 10
+    lineNumber: 11
   },
   __self: undefined
 }, __jsx(_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 11
+    lineNumber: 12
   },
   __self: undefined
-}), props.children);
+}), props.children); // export default Layout;
+// Method #2
 
-/* harmony default export */ __webpack_exports__["default"] = (Layout);
+
+const withLayout = Page => {
+  return () => __jsx("div", {
+    style: layoutStyle,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22
+    },
+    __self: undefined
+  }, __jsx(_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23
+    },
+    __self: undefined
+  }), __jsx(Page, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24
+    },
+    __self: undefined
+  }), ">");
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (withLayout);
 
 /***/ }),
 
@@ -1892,7 +1917,6 @@ module.exports = __webpack_require__(/*! ./dist/client/link */ "./node_modules/n
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Index; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _comps_MyLayout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../comps/MyLayout */ "./comps/MyLayout.js");
@@ -1900,22 +1924,25 @@ var _jsxFileName = "/Users/abby.gottlich/Documents/hello-next/pages/index.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
-function Index() {
-  return __jsx(_comps_MyLayout__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 5
-    },
-    __self: this
-  }, __jsx("p", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 6
-    },
-    __self: this
-  }, "Hello Next.js"));
-}
-;
+ // Method #1
+// export default function Index() {
+//     return (
+//         <Layout>
+//             <p>Hello Next.js</p>
+//         </Layout>
+//     )
+// };
+// Method #2
+
+const Page = () => __jsx("p", {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 14
+  },
+  __self: undefined
+}, "Hello Next.js");
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_comps_MyLayout__WEBPACK_IMPORTED_MODULE_1__["default"])(Page));
 
 /***/ }),
 
