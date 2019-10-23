@@ -1973,58 +1973,59 @@ const PostLink = props => __jsx("li", {
   },
   __self: undefined
 }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
-  href: `/post?title=${props.title}`,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 29
-  },
-  __self: undefined
-}, __jsx("a", {
+  href: "p/[id]",
+  as: `/p/${props.id}`,
   __source: {
     fileName: _jsxFileName,
     lineNumber: 30
   },
   __self: undefined
-}, props.title)));
+}, __jsx("a", {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 31
+  },
+  __self: undefined
+}, props.id)));
 
 function Blog() {
   return __jsx(_comps_MyLayout__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36
+      lineNumber: 37
     },
     __self: this
   }, __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37
+      lineNumber: 38
     },
     __self: this
   }, "My Blog"), __jsx("ul", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
-    },
-    __self: this
-  }, __jsx(PostLink, {
-    title: "Hello Next.js",
-    __source: {
-      fileName: _jsxFileName,
       lineNumber: 39
     },
     __self: this
-  }), __jsx(PostLink, {
-    title: "Learning Next.js is Awesome",
+  }, __jsx(PostLink, {
+    id: "hello-nextjs",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 40
     },
     __self: this
   }), __jsx(PostLink, {
-    title: "Deploy Apps with Zeit",
+    id: "learn-nextjs",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 41
+    },
+    __self: this
+  }), __jsx(PostLink, {
+    id: "deploy-nextjs",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 42
     },
     __self: this
   })));
