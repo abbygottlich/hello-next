@@ -190,11 +190,11 @@ const Layout = props => __jsx("div", {
     lineNumber: 13
   },
   __self: undefined
-}), props.children); // export default Layout;
-// Method #2 - Layout as a Higher Order Component
+}), props.children);
+
+/* harmony default export */ __webpack_exports__["default"] = (Layout); // Method #2 - Layout as a Higher Order Component
 // This method takes in the variable Page that was created in your index/about
 // pages that has been set equal to the content you want displayed and renders it
-
 
 const pageLayout = Page => {
   return () => __jsx("div", {
@@ -236,9 +236,7 @@ const contentLayout = props => __jsx("div", {
     lineNumber: 42
   },
   __self: undefined
-}), props.content);
-
-/* harmony default export */ __webpack_exports__["default"] = (contentLayout);
+}), props.content); // export default contentLayout;
 
 /***/ }),
 
@@ -1949,36 +1947,29 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
  // Method #1 - using props.children
-// export default function About() {
-//     return (
-//         <Layout>
-//             <p>This is the about page</p>
-//         </Layout>
-//     );
-// }
-// Method #2 - Layout as a Higher Order Component
-// const Page = () => <p>This is the about page</p>;
-// export default pageLayout(Page);
-// Method #3 - Page content as a prop
-
-const aboutPageContent = __jsx("p", {
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 19
-  },
-  __self: undefined
-}, "This is the about page");
 
 function About() {
   return __jsx(_comps_MyLayout__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    content: aboutPageContent,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22
+      lineNumber: 8
     },
     __self: this
-  });
-}
+  }, __jsx("p", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: this
+  }, "This is the about page"));
+} // Method #2 - Layout as a Higher Order Component
+// const Page = () => <p>This is the about page</p>;
+// export default pageLayout(Page);
+// Method #3 - Page content as a prop
+// const aboutPageContent = <p>This is the about page</p>
+// export default function About() {
+//     return <Layout content={aboutPageContent} />
+// }
 
 /***/ }),
 

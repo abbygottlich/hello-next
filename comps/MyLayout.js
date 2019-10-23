@@ -15,7 +15,7 @@ const Layout = props => (
     </div>
 );
 
-// export default Layout;
+export default Layout;
 
 
 
@@ -44,5 +44,5 @@ const contentLayout = props => (
     </div>
 );
 
-export default contentLayout;
+// export default contentLayout;
 
