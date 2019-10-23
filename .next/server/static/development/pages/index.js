@@ -1813,6 +1813,7 @@ const Index = () => __jsx("div", {
   },
   __self: undefined
 }, __jsx("a", {
+  title: "About Page",
   __source: {
     fileName: _jsxFileName,
     lineNumber: 6
