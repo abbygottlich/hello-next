@@ -67,7 +67,7 @@ function About() {
 
 /***/ }),
 
-/***/ 0:
+/***/ 2:
 /*!******************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fabout&absolutePagePath=%2FUsers%2Fabby.gottlich%2FDocuments%2Fhello-next%2Fpages%2Fabout.js ***!
   \******************************************************************************************************************************************/
@@ -90,5 +90,5 @@ module.exports = dll_e9ad7d891b372a4221cf;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=about.js.map
