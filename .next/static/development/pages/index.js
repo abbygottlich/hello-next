@@ -10337,8 +10337,9 @@ _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(f
 
         case 5:
           data = _context.sent;
-          console.log("Show data fetched. Count: ".concat(data.length));
-          console.log(data);
+          // this console log only shows up in the server console because when the site is first rendered, it renders on the server side
+          console.log("Show data fetched. Count: ".concat(data.length)); // console.log(data);
+
           return _context.abrupt("return", {
             // what you are mapping over in the above function (props.shows)
             shows: data.map(function (entry) {
@@ -10346,7 +10347,7 @@ _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(f
             })
           });
 
-        case 9:
+        case 8:
         case "end":
           return _context.stop();
       }

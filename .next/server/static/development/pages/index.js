@@ -2035,9 +2035,10 @@ const Index = props => __jsx(_comps_MyLayout__WEBPACK_IMPORTED_MODULE_1__["defau
 
 Index.getInitialProps = async function () {
   const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3___default()('https://api.tvmaze.com/search/shows?q=batman');
-  const data = await res.json();
-  console.log(`Show data fetched. Count: ${data.length}`);
-  console.log(data);
+  const data = await res.json(); // this console log only shows up in the server console because when the site is first rendered, it renders on the server side
+
+  console.log(`Show data fetched. Count: ${data.length}`); // console.log(data);
+
   return {
     // what you are mapping over in the above function (props.shows)
     shows: data.map(entry => entry.show)

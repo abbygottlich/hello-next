@@ -71,8 +71,9 @@ Index.getInitialProps = async function() {
     const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
     const data = await res.json();
 
+    // this console log only shows up in the server console because when the site is first rendered, it renders on the server side
     console.log(`Show data fetched. Count: ${data.length}`);
-    console.log(data);
+    // console.log(data);
 
     return {
         // what you are mapping over in the above function (props.shows)
