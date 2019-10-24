@@ -1,5 +1,6 @@
 import Layout from "../comps/MyLayout";
 import Link from "next/link";
+import fetch from 'isomorphic-unfetch';
 // import pageLayout from "../comps/MyLayout";
 // import contentLayout from "../comps/MyLayout";
 
@@ -24,23 +25,59 @@ import Link from "next/link";
 // }
 
 
-const PostLink = props => (
-    <li>
-        {/* this is basically saying, link to the [id] file, but make the path the same as the prop id below */}
-        <Link href="p/[id]" as={`/p/${props.id}`}>
-            <a>{props.id}</a>
-        </Link>
-    </li>
+// blog post code
+// const PostLink = props => (
+//     <li>
+//         {/* this is basically saying, link to the [id] file, but make the path the same as the prop id below */}
+//         <Link href="p/[id]" as={`/p/${props.id}`}>
+//             <a>{props.id}</a>
+//         </Link>
+//     </li>
+// );
+// export default function Blog() {
+//     return (
+//         <Layout>
+//             <h1>My Blog</h1>
+//             <ul>
+//                 <PostLink id="hello-nextjs" />
+//                 <PostLink id="learn-nextjs" />
+//                 <PostLink id="deploy-nextjs" />
+//             </ul>
+//         </Layout>
+//     );
+// }
+
+// batman shows code
+// getting props from Index.getInitialProps below
+const Index = props => (
+    <Layout>
+        <h1>Batman TV Shows</h1>
+        <ul>
+            {/* mapping over the returned shows object from function below */}
+            {props.shows.map(show => (
+                <li key={show.id}>
+                    {/* actually routing you to [id].js page, but displaying the show id in the url */}
+                    <Link href="/p/[id]" as={`/p/${show.id}`}>
+                        <a>{show.name}</a>
+                    </Link>
+                </li>
+            ))}
+        </ul>
+    </Layout>
 );
-export default function Blog() {
-    return (
-        <Layout>
-            <h1>My Blog</h1>
-            <ul>
-                <PostLink id="hello-nextjs" />
-                <PostLink id="learn-nextjs" />
-                <PostLink id="deploy-nextjs" />
-            </ul>
-        </Layout>
-    );
-}
+
+// whatever this function returns will be the props for the Index function above
+Index.getInitialProps = async function() {
+    const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
+    const data = await res.json();
+
+    console.log(`Show data fetched. Count: ${data.length}`);
+    console.log(data);
+
+    return {
+        // what you are mapping over in the above function (props.shows)
+        shows: data.map(entry => entry.show)
+    };
+};
+
+export default Index;
