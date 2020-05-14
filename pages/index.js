@@ -1,5 +1,7 @@
+import React from "react";
 import Layout from "../comps/MyLayout";
 import Link from "next/link";
+import Puppy from "../comps/Puppy";
 
 function getPosts() {
   return [
@@ -33,28 +35,74 @@ const PostLink = ({ post }) => (
   </li>
 );
 
-export default function Blog() {
-  return (
-    <Layout>
-      <h1>My Blog</h1>
-      <ul>
-        {getPosts().map((post) => (
-          <PostLink key={post.id} post={post} />
-        ))}
-      </ul>
-      <Link href="/p/staticRoute">
-        <a>This is a static route</a>
-      </Link>
-      <style jsx>{`
-        h1,
-        a {
-          font-family: "Arial";
-        }
+export default class Blog extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showPuppy: false,
+    };
+  }
 
-        ul {
-          padding: 0;
-        }
-      `}</style>
-    </Layout>
-  );
+  handleClick() {
+    console.log("clicked");
+    this.setState({
+      showPuppy: true,
+    });
+  }
+
+  render() {
+    return (
+      <Layout>
+        <h1>My Blog</h1>
+        <ul>
+          {getPosts().map((post) => (
+            <PostLink key={post.id} post={post} />
+          ))}
+        </ul>
+        <Link href="/p/staticRoute">
+          <a>This is a static route</a>
+        </Link>
+        <button onClick={() => this.handleClick()}>Click Me!</button>
+        {this.state.showPuppy ? <Puppy /> : null}
+        <style jsx>{`
+          h1,
+          a {
+            font-family: "Arial";
+          }
+
+          ul {
+            padding: 0;
+          }
+        `}</style>
+      </Layout>
+    );
+  }
 }
+
+// export default function Blog() {
+//   return (
+//     <Layout>
+//       <h1>My Blog</h1>
+//       <ul>
+//         {getPosts().map((post) => (
+//           <PostLink key={post.id} post={post} />
+//         ))}
+//       </ul>
+//       <Link href="/p/staticRoute">
+//         <a>This is a static route</a>
+//       </Link>
+//       <button click={handleClick}>Click Me!</button>
+//       {this.state.showPuppy ? <Puppy /> : null}
+//       <style jsx>{`
+//         h1,
+//         a {
+//           font-family: "Arial";
+//         }
+
+//         ul {
+//           padding: 0;
+//         }
+//       `}</style>
+//     </Layout>
+//   );
+// }
