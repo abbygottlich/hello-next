@@ -1,7 +1,14 @@
 import React from "react";
+import dynamic from "next/dynamic";
 import Layout from "../comps/MyLayout";
 import Link from "next/link";
 import Puppy from "../comps/Puppy";
+
+// const DynamicPuppy = dynamic(import("../comps/DynamicPuppy"));
+
+// const DynamicPuppy = dynamic(() => import("../comps/DynamicPuppy"), {
+//   loading: () => <p>Loading...</p>,
+// });
 
 function getPosts() {
   return [
@@ -40,13 +47,19 @@ export default class Blog extends React.Component {
     super(props);
     this.state = {
       showPuppy: false,
+      showDynamicPuppy: false,
     };
   }
 
   handleClick() {
-    console.log("clicked");
     this.setState({
       showPuppy: true,
+    });
+  }
+
+  handleDynamicClick() {
+    this.setState({
+      showDynamicPuppy: true,
     });
   }
 
@@ -59,11 +72,18 @@ export default class Blog extends React.Component {
             <PostLink key={post.id} post={post} />
           ))}
         </ul>
-        <Link href="/p/staticRoute">
-          <a>This is a static route</a>
-        </Link>
-        <button onClick={() => this.handleClick()}>Click Me!</button>
+        <div>
+          <Link href="/p/staticRoute">
+            <a>This is a static route</a>
+          </Link>
+        </div>
+        <button onClick={() => this.handleClick()}>Static Import Click</button>
+        <button onClick={() => this.handleDynamicClick()}>
+          Dynamic Import Click
+        </button>
         {this.state.showPuppy ? <Puppy /> : null}
+        {/* {this.state.showDynamicPuppy ? <DynamicPuppy /> : null} */}
+
         <style jsx>{`
           h1,
           a {
@@ -73,36 +93,13 @@ export default class Blog extends React.Component {
           ul {
             padding: 0;
           }
+
+          button {
+            margin-top: 20px;
+            margin-right: 10px;
+          }
         `}</style>
       </Layout>
     );
   }
 }
-
-// export default function Blog() {
-//   return (
-//     <Layout>
-//       <h1>My Blog</h1>
-//       <ul>
-//         {getPosts().map((post) => (
-//           <PostLink key={post.id} post={post} />
-//         ))}
-//       </ul>
-//       <Link href="/p/staticRoute">
-//         <a>This is a static route</a>
-//       </Link>
-//       <button click={handleClick}>Click Me!</button>
-//       {this.state.showPuppy ? <Puppy /> : null}
-//       <style jsx>{`
-//         h1,
-//         a {
-//           font-family: "Arial";
-//         }
-
-//         ul {
-//           padding: 0;
-//         }
-//       `}</style>
-//     </Layout>
-//   );
-// }

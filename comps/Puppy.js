@@ -1,6 +1,6 @@
 const Puppy = () => (
   <>
-    <img src="https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12231413/Labrador-Retriever-MP.jpg"></img>
+    <img src="https://cdn1-www.dogtime.com/assets/uploads/gallery/boxer-puppies/boxer-puppy-1.jpg"></img>
 
     <style jsx>{`
       img {
